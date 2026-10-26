@@ -15,8 +15,8 @@
 
 ## 3. Thành viên nhóm
 
-- Thành viên 1: Đặng Thị Tâm Nhân
-- Thành viên 2: Nguyễn Thị Trúc Mai
+- Thành viên 1: [Đặng Thị Tâm Nhân]
+- Thành viên 2: [Nguyễn Thị Trúc Mai]
 
 ## 4. Tiến độ thực hiện
 
