@@ -22,7 +22,7 @@
 
 Nhóm theo dõi kế hoạch, các công việc và trạng thái thực hiện tại đường dẫn:
 
-- **Bảng theo dõi tiến độ:** https://docs.google.com/spreadsheets/d/1AGxArqSMiEvBeZdvM9cULORRpQddFGCQ/edit?usp=sharing&ouid=115122516535057355668&rtpof=true&sd=true
+- **Bảng theo dõi tiến độ:** **Bảng theo dõi tiến độ:** [Xem tiến độ nhóm](https://docs.google.com/spreadsheets/d/1AGxArqSMiEvBeZdvM9cULORRpQddFGCQ/edit?usp=sharing&ouid=115122516535057355668&rtpof=true&sd=true)
 
 ## 5. Trạng thái hiện tại
 
