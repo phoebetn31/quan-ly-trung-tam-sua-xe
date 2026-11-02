@@ -20,9 +20,9 @@
 
 ## 4. Tiến độ thực hiện
 
-Nhóm theo dõi kế hoạch, các công việc và trạng thái thực hiện tại đường dẫn:
+Nhóm theo dõi kế hoạch, các công việc cũng như tài nguyên và trạng thái thực hiện tại đường dẫn:
 
-- **Bảng theo dõi tiến độ:** **Bảng theo dõi tiến độ:** [Xem tiến độ nhóm](https://docs.google.com/spreadsheets/d/1AGxArqSMiEvBeZdvM9cULORRpQddFGCQ/edit?usp=sharing&ouid=115122516535057355668&rtpof=true&sd=true)
+- **Link Drive:**[Liên kết](https://drive.google.com/drive/folders/1gtaVLFuKvp0oisCUHWErpnZHJ20ax-pI?usp=sharing)
 
 ## 5. Trạng thái hiện tại
 
