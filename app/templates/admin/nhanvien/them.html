@@ -1,0 +1,119 @@
+
+{% extends 'layouts/base.html' %}
+
+{% block title %}Thêm nhân viên{% endblock %}
+
+{% block content %}
+<div class="container mt-4 mb-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h3 class="fw-bold">Thêm nhân viên</h3>
+            <p class="text-muted mb-0">Nhập thông tin nhân viên mới</p>
+        </div>
+        <a href="{{ url_for('admin.danhsach_nhanvien') }}"
+           class="btn btn-outline-secondary">
+            Quay lại
+        </a>
+    </div>
+
+    {% if err_msg %}
+    <div class="alert alert-danger">
+        {{ err_msg }}
+    </div>
+    {% endif %}
+
+    <div class="card shadow-sm">
+        <div class="card-body p-4">
+
+            <form method="POST">
+
+                <div class="row">
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Mã nhân viên</label>
+                        <input type="text" name="maNV"
+                               class="form-control"
+                               placeholder="VD: NV001" required>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Họ và tên</label>
+                        <input type="text" name="hoTen"
+                               class="form-control"
+                               placeholder="Nhập họ và tên" required>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Ngày sinh</label>
+                        <input type="date" name="ngaySinh"
+                               class="form-control">
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Giới tính</label>
+                        <select name="gioiTinh" class="form-select">
+                            <option value="Nam">Nam</option>
+                            <option value="Nữ">Nữ</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Số điện thoại</label>
+                        <input type="text" name="sdt"
+                               class="form-control"
+                               placeholder="Nhập số điện thoại">
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Địa chỉ</label>
+                        <input type="text" name="diaChi"
+                               class="form-control"
+                               placeholder="Nhập địa chỉ">
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Chức vụ</label>
+                        <select name="chucVu" class="form-select">
+                            <option value="Quản lý">Quản lý</option>
+                            <option value="Nhân viên tiếp nhận">Nhân viên tiếp nhận</option>
+                            <option value="Kỹ thuật viên">Kỹ thuật viên</option>
+                            <option value="Nhân viên thu ngân">Nhân viên thu ngân</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Ngày vào làm</label>
+                        <input type="date" name="ngayVaoLam"
+                               class="form-control">
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Trạng thái</label>
+                        <select name="trangThai" class="form-select">
+                            <option value="Đang làm">Đang làm</option>
+                            <option value="Nghỉ việc">Đã nghỉ</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <div class="d-flex justify-content-end gap-2">
+                    <a href="{{ url_for('admin.danhsach_nhanvien') }}"
+                       class="btn btn-secondary">
+                        Hủy
+                    </a>
+
+                    <button type="submit" class="btn btn-primary">
+                        Thêm nhân viên
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

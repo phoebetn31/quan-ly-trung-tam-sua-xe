@@ -1,0 +1,156 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Danh sách nhân viên{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid py-4">
+
+    <!-- Tiêu đề -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h3 class="fw-bold mb-1">Quản lý nhân viên</h3>
+            <p class="text-muted mb-0">Quản lý thông tin nhân viên trung tâm</p>
+        </div>
+
+        <a href="{{ url_for('admin.them_nhanvien') }}" class="btn btn-primary">
+            + Thêm nhân viên
+        </a>
+    </div>
+
+    <!-- Thống kê -->
+    <div class="row g-3 mb-4">
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0">
+                <div class="card-body">
+                    <p class="text-muted mb-1">Tổng nhân viên</p>
+                    <h3 class="fw-bold">{{ nhanviens|length }}</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0">
+                <div class="card-body">
+                    <p class="text-muted mb-1">Đang làm</p>
+                    <h3 class="fw-bold text-success">
+                        {{ nhanviens|selectattr('trangThai', 'equalto', 'Đang làm')|list|length }}
+                    </h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0">
+                <div class="card-body">
+                    <p class="text-muted mb-1">Đã nghỉ việc</p>
+                    <h3 class="fw-bold text-danger">
+                        {{ nhanviens|selectattr('trangThai', 'equalto', 'Nghỉ việc')|list|length }}
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tìm kiếm -->
+    <div class="card shadow-sm border-0 mb-4">
+        <div class="card-body">
+            <form action="{{ url_for('admin.danhsach_nhanvien') }}" method="GET"
+                  class="row g-2">
+
+                <div class="col-md-10">
+                    <input type="text" name="keyword"
+                           class="form-control"
+                           placeholder="Tìm theo mã nhân viên, họ tên hoặc số điện thoại..."
+                           value="{{ request.args.get('keyword', '') }}">
+                </div>
+
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-primary w-100">
+                        Tìm kiếm
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <!-- Bảng nhân viên -->
+    <div class="card shadow-sm border-0">
+        <div class="card-body">
+
+            <div class="d-flex justify-content-between mb-3">
+                <h5 class="fw-bold mb-0">Danh sách nhân viên</h5>
+                <span class="text-muted">
+                    {{ nhanviens|length }} nhân viên
+                </span>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-hover align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Mã NV</th>
+                            <th>Họ và tên</th>
+                            <th>Giới tính</th>
+                            <th>Số điện thoại</th>
+                            <th>Chức vụ</th>
+                            <th>Ngày vào làm</th>
+                            <th>Trạng thái</th>
+                            <th class="text-center">Thao tác</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for nv in nhanviens %}
+                        <tr>
+                            <td class="fw-bold">{{ nv.maNV }}</td>
+                            <td>{{ nv.hoTen }}</td>
+                            <td>{{ nv.gioiTinh }}</td>
+                            <td>{{ nv.sdt }}</td>
+                            <td>{{ nv.chucVu }}</td>
+                            <td>{{ nv.ngayVaoLam }}</td>
+
+                            <td>
+                                {% if nv.trangThai == 'Đang làm' %}
+                                    <span class="badge bg-success">Đang làm</span>
+                                {% else %}
+                                    <span class="badge bg-secondary">Nghỉ việc</span>
+                                {% endif %}
+                            </td>
+
+                            <td class="text-center">
+                                <a href="{{ url_for('admin.capnhat_nhanvien', maNV=nv.maNV) }}"
+                                   class="btn btn-sm btn-outline-primary">
+                                    Sửa
+                                </a>
+
+                                <form action="{{ url_for('admin.xoa_nhanvien', maNV=nv.maNV) }}"
+                                      method="POST" class="d-inline"
+                                      onsubmit="return confirm('Bạn có chắc muốn xóa nhân viên này?')">
+
+                                    <button type="submit"
+                                            class="btn btn-sm btn-outline-danger">
+                                        Xóa
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+
+                        {% else %}
+                        <tr>
+                            <td colspan="8" class="text-center text-muted py-4">
+                                Không tìm thấy nhân viên nào.
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

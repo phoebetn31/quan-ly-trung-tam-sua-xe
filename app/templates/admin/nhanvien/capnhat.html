@@ -1,0 +1,143 @@
+
+{% extends 'layouts/base.html' %}
+
+{% block title %}Cập nhật nhân viên{% endblock %}
+
+{% block content %}
+<div class="container mt-4 mb-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h3 class="fw-bold">Cập nhật nhân viên</h3>
+            <p class="text-muted mb-0">Chỉnh sửa thông tin nhân viên</p>
+        </div>
+        <a href="{{ url_for('admin.danhsach_nhanvien') }}"
+           class="btn btn-outline-secondary">
+            Quay lại
+        </a>
+    </div>
+
+    {% if err_msg %}
+    <div class="alert alert-danger">
+        {{ err_msg }}
+    </div>
+    {% endif %}
+
+    <div class="card shadow-sm">
+        <div class="card-body p-4">
+
+            <form method="POST">
+
+                <div class="row">
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Mã nhân viên</label>
+                        <input type="text" class="form-control"
+                               value="{{ nhanvien.maNV }}" disabled>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Họ và tên</label>
+                        <input type="text" name="hoTen"
+                               class="form-control"
+                               value="{{ nhanvien.hoten }}" required>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Ngày sinh</label>
+                        <input type="date" name="ngaySinh"
+                               class="form-control"
+                               value="{{ nhanvien.ngaySinh }}">
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Giới tính</label>
+                        <select name="gioiTinh" class="form-select">
+                            <option value="Nam"
+                                {% if nhanvien.gioiTinh == 'Nam' %}selected{% endif %}>
+                                Nam
+                            </option>
+                            <option value="Nữ"
+                                {% if nhanvien.gioiTinh == 'Nữ' %}selected{% endif %}>
+                                Nữ
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Số điện thoại</label>
+                        <input type="text" name="sdt"
+                               class="form-control"
+                               value="{{ nhanvien.sdt }}">
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Địa chỉ</label>
+                        <input type="text" name="diaChi"
+                               class="form-control"
+                               value="{{ nhanvien.diaChi }}">
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Chức vụ</label>
+                        <select name="chucVu" class="form-select">
+                            <option value="Quản lý"
+                                {% if nhanvien.chucVu == 'Quản lý' %}selected{% endif %}>
+                                Quản lý
+                            </option>
+                            <option value="Nhân viên tiếp nhận"
+                                {% if nhanvien.chucVu == 'Nhân viên tiếp nhận' %}selected{% endif %}>
+                                Nhân viên tiếp nhận
+                            </option>
+                            <option value="Kỹ thuật viên"
+                                {% if nhanvien.chucVu == 'Kỹ thuật viên' %}selected{% endif %}>
+                                Kỹ thuật viên
+                            </option>
+                            <option value="Nhân viên thu ngân"
+                                {% if nhanvien.chucVu == 'Nhân viên thu ngân' %}selected{% endif %}>
+                                Nhân viên thu ngân
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Ngày vào làm</label>
+                        <input type="date" name="ngayVaoLam"
+                               class="form-control"
+                               value="{{ nhanvien.ngayVaoLam }}">
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Trạng thái</label>
+                        <select name="trangThai" class="form-select">
+                            <option value="Đang làm"
+                                {% if nhanvien.trangThai == 'Đang làm' %}selected{% endif %}>
+                                Đang làm
+                            </option>
+                            <option value="Nghỉ việc"
+                                {% if nhanvien.trangThai == 'Đã nghỉ' %}selected{% endif %}>
+                                Đã nghỉ
+                            </option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <div class="d-flex justify-content-end gap-2">
+                    <a href="{{ url_for('admin.danhsach_nhanvien') }}"
+                       class="btn btn-secondary">
+                        Hủy
+                    </a>
+                    <button type="submit" class="btn btn-primary">
+                        Lưu thay đổi
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

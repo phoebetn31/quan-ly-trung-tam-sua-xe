@@ -1,0 +1,80 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Đăng nhập{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<h3 class="text-info text-center mt-3">Đăng nhập hệ thống</h3>
+
+{% if err_msg %}<div class="alert alert-danger">{{ err_msg }}</div>{% endif %}
+
+<div class="login-container">
+    <div class="login-card premium-card">
+
+        <div class="login-header">
+            <div class="logo">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+            </div>
+
+            <h2>GARAGE MANAGEMENT</h2>
+            <p>Đăng nhập vào hệ thống quản lý gara</p>
+        </div>
+
+        <form class="login-form premium-form" method="post">
+
+            <div class="input-field premium-input">
+                <i class="fa-solid fa-user"></i>
+
+                <input type="text"
+                       id="username"
+                       name="username"
+                       placeholder="Tên đăng nhập"
+                       required>
+            </div>
+
+            <div class="input-field premium-input">
+                <i class="fa-solid fa-lock"></i>
+
+                <input type="password"
+                       id="password"
+                       name="password"
+                       placeholder="Mật khẩu"
+                       required>
+
+                <button type="button"
+                        class="password-toggle"
+                        id="togglePassword">
+                    <i class="fa-regular fa-eye-slash"></i>
+                </button>
+            </div>
+
+            <div class="form-option">
+                <label class="remember-me">
+                    <input type="checkbox" name="remember">
+                    <span>Ghi nhớ đăng nhập</span>
+                </label>
+
+                <a href="#">Quên mật khẩu?</a>
+            </div>
+
+            <button type="submit" class="premium-button">
+                <span>ĐĂNG NHẬP</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+        </form>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/login.js') }}"></script>
+
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
