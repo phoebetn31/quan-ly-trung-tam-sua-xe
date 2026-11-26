@@ -1,0 +1,35 @@
+[
+    {
+        "maNV": "NV002",
+        "hoTen": "Trần Thị Mai",
+        "ngaySinh": "2002-08-20",
+        "gioiTinh": "Nữ",
+        "sdt": "0912345678",
+        "diaChi": "Quận 4, TP.HCM",
+        "chucVu": "Nhân viên tiếp nhận",
+        "ngayVaoLam": "2024-03-15",
+        "trangThai": "Đang làm"
+    },
+    {
+        "maNV": "NV003",
+        "hoTen": "Lê Văn Bình",
+        "ngaySinh": "1999-11-05",
+        "gioiTinh": "Nam",
+        "sdt": "0987654321",
+        "diaChi": "Quận 8, TP.HCM",
+        "chucVu": "Kỹ thuật viên",
+        "ngayVaoLam": "2024-05-20",
+        "trangThai": "Đang làm"
+    },
+    {
+        "maNV": "NV004",
+        "hoTen": "Phạm Thị Lan",
+        "ngaySinh": "2001-02-18",
+        "gioiTinh": "Nữ",
+        "sdt": "0934567890",
+        "diaChi": "Nhà Bè, TP.HCM",
+        "chucVu": "Thu ngân",
+        "ngayVaoLam": "2025-01-05",
+        "trangThai": "Nghỉ việc"
+    }
+]
